@@ -1,0 +1,54 @@
+* {
+  color: black;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 3rem;
+  padding: 1rem;
+  h3 {
+    text-align: center;
+  }
+  & > article {
+    cursor: pointer;
+    border: 0.5rem solid black;
+    border-radius: 1rem;
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+  }
+  article:hover {
+    transform: translateY(-1rem);
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > p {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 4rem);
+    font-size: clamp(1rem, 2vw, 5rem);
+    font-weight: bolder;
+    a {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
