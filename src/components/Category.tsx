@@ -1,14 +1,14 @@
 import type { ReactElement } from "react";
-import type { ICategoryProp } from "../types/category.types";
+import type { ICategoryProp, TCategoryItem } from "../types/category.types";
 import { FaGithub } from "react-icons/fa";
 import "../style/category.css";
 
 import got from "/got.jpg";
 import pokemon from "/pokemon.jpg";
 import bb from "/breaking_bad.jpg";
-import ram from "/ricky_and_morty.jpeg";
+import ram from "/ricky_and_morty.png";
 
-const categories = [
+const categories: TCategoryItem[] = [
   { key: "got", label: "Game of Thrones", img: got },
   { key: "pokemon", label: "Pokemon", img: pokemon },
   { key: "bb", label: "Breaking Bad", img: bb },
@@ -17,6 +17,7 @@ const categories = [
 
 export default function Category({
   goToNextPhase,
+  chooseCategory,
 }: ICategoryProp): ReactElement {
   document.body.classList.add("category");
   return (
@@ -30,7 +31,10 @@ export default function Category({
           <article
             key={key}
             className="category-card"
-            onClick={() => goToNextPhase("difficulty")}
+            onClick={() => {
+              goToNextPhase("difficulty");
+              chooseCategory(key);
+            }}
             tabIndex={0}
           >
             <img src={img} alt={label} />

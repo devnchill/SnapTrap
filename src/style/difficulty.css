@@ -1,0 +1,54 @@
+body.difficulty {
+  & > #root {
+    & > #app {
+      main {
+        font-size: clamp(1rem, 2vw, 3rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        & > section {
+          cursor: pointer;
+          border-radius: 2px;
+          padding: 1rem;
+        }
+        section:hover {
+          border: 2px solid black;
+          transform: translateY(-1rem);
+        }
+      }
+    }
+  }
+}
+
+body.got {
+  * {
+    color: white;
+  }
+  & > #root {
+    background-image: url("/got.jpg");
+    & > #app > main > section:hover {
+      border: 2px solid white;
+    }
+  }
+}
+
+body.pokemon {
+  & > #root {
+    background-image: url("/pokemon.jpg");
+    & > #app {
+      border: 1px solid royalblue;
+    }
+  }
+}
+body.bb {
+  & > #root {
+    background-image: url("/breaking_bad.jpg");
+  }
+}
+
+body.ram {
+  & > #root {
+    background-image: url("/ricky_and_morty.png");
+  }
+}
