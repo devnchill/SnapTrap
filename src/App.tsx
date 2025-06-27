@@ -6,10 +6,11 @@ import Difficulty from "./components/Difficulty";
 import Game from "./components/Game";
 import type { TDifficulty } from "./types/difficulty.types";
 import type { TCategory } from "./types/category.types";
+import { FaGithub } from "react-icons/fa";
 
 export default function App(): ReactElement {
   const [currentPhase, setCurrentPhase] = useState<Phase>("category");
-  const [difficulty, setDifficulty] = useState<IDifficulty>("easy");
+  const [difficulty, setDifficulty] = useState<TDifficulty>("easy");
   const [category, setCategory] = useState<TCategory>("got");
 
   function goToNextPhase(nextPhase: Phase) {
@@ -25,7 +26,10 @@ export default function App(): ReactElement {
   }
 
   return (
-    <>
+    <div id="app">
+      <header>
+        <h1>SnapTrap</h1>
+      </header>
       {currentPhase === "category" && (
         <Category
           goToNextPhase={goToNextPhase}
@@ -42,6 +46,14 @@ export default function App(): ReactElement {
       {currentPhase === "game" && (
         <Game category={category} difficultyLevel={difficulty} />
       )}
-    </>
+      <footer>
+        <p>
+          &copy; Viena
+          <a href="https://github.com/devnchill/">
+            <FaGithub />
+          </a>
+        </p>
+      </footer>
+    </div>
   );
 }

@@ -1,6 +1,5 @@
 import type { ReactElement } from "react";
 import type { ICategoryProp, TCategoryItem } from "../types/category.types";
-import { FaGithub } from "react-icons/fa";
 import "../style/category.css";
 
 import got from "/got.jpg";
@@ -21,10 +20,7 @@ export default function Category({
 }: ICategoryProp): ReactElement {
   document.body.classList.add("category");
   return (
-    <div id="app">
-      <header>
-        <h1>SnapTrap</h1>
-      </header>
+    <>
       <h2>Select Category</h2>
       <main className="category-grid">
         {categories.map(({ key, label, img }) => (
@@ -42,14 +38,6 @@ export default function Category({
           </article>
         ))}
       </main>
-      <footer>
-        <p>
-          &copy; Viena
-          <a href="https://github.com/devnchill/">
-            <FaGithub />
-          </a>
-        </p>
-      </footer>
-    </div>
+    </>
   );
 }
