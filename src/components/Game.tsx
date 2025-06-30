@@ -6,6 +6,8 @@ import fetchPokemonImg from "../service/pokemon";
 import "../style/game.css";
 import "../style/result.css";
 import fetchGOTImg from "../service/got";
+import fetchRAMImg from "../service/ram";
+import fetchBBImg from "../service/bb";
 
 const difficultyLevelTonoOfCards: Record<TDifficulty, number> = {
   easy: 10,
@@ -78,9 +80,14 @@ export default function Game({
         break;
       }
       case "bb": {
+        const imgPromise = fetchBBImg(noOfCards);
+        imgPromise.then((val) => setArrofImg(val));
+
         break;
       }
       case "ram": {
+        const imgPromise = fetchRAMImg(noOfCards);
+        imgPromise.then((val) => setArrofImg(val));
         break;
       }
       default:

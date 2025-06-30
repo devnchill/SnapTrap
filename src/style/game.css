@@ -24,7 +24,8 @@ body.game {
     }
   }
 }
-body.got {
+body.got,
+body.bb {
   img {
     aspect-ratio: 2/3;
   }

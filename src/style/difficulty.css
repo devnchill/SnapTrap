@@ -43,7 +43,7 @@ body.pokemon {
     & > #app {
       border: 1px solid royalblue;
       .level:hover {
-        border: 1px solid black;
+        border: 2px solid black;
       }
     }
     img {
@@ -55,7 +55,7 @@ body.bb {
   & > #root {
     background-image: url("/breaking_bad.jpg");
     .level:hover {
-      border: 1px solid black;
+      border: 2px solid black;
     }
     img {
       border: 1px solid black;
@@ -67,7 +67,10 @@ body.ram {
   & > #root {
     background-image: url("/ricky_and_morty.png");
     .level:hover {
-      border: 1px solid black;
+      border: 2px solid black;
+    }
+    img {
+      border: 1px solid orange;
     }
   }
 }
