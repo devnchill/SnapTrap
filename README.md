@@ -1,69 +1,27 @@
-# React + TypeScript + Vite
+# SnapTrap
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Memory game with characters from Pokémon, GoT, Breaking Bad, and Rick & Morty.
 
-Currently, two official plugins are available:
+## How to Play
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Click each character image **only once** — clicking the same image twice ends the game.
+- Choose from **3 difficulty levels**:
+  - **Easy** – 10 cards
+  - **Medium** – 25 cards
+  - **Hard** – 50 cards
+- Categories include Pokémon, Game of Thrones, Breaking Bad, and Rick & Morty.
 
-## Expanding the ESLint configuration
+## Credits
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [PokeAPI](https://pokeapi.co/)
+- [Rick and Morty API](https://rickandmortyapi.com/)
+- [ThronesAPI](https://thronesapi.com/)
+- [Breaking Bad JSON](https://github.com/chewhx/breaking-bad/blob/main/_data/dump/characters.json)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Preview
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+![Image](https://github.com/user-attachments/assets/24d2a133-577c-4fba-871d-7a4519437451)
+![Image](https://github.com/user-attachments/assets/7d6011ed-951e-4d54-8a96-d9bae673e115)
+![Image](https://github.com/user-attachments/assets/7086b13e-5a62-496c-9ed9-a7c6faba0501)
+![Image](https://github.com/user-attachments/assets/b4fadfda-b8e9-405e-aeb2-cfeb51deef27)
+![Image](https://github.com/user-attachments/assets/2f2ec54c-2124-452a-93e3-6830b6cc1a24)
