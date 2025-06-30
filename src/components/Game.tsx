@@ -4,6 +4,7 @@ import Grid from "./Grid";
 import type { TDifficulty } from "../types/difficulty.types";
 import fetchPokemonImg from "../service/pokemon";
 import "../style/game.css";
+import "../style/result.css";
 
 const difficultyLevelTonoOfCards: Record<TDifficulty, number> = {
   easy: 10,
@@ -14,42 +15,54 @@ const difficultyLevelTonoOfCards: Record<TDifficulty, number> = {
 export default function Game({
   gameCategory,
   difficultyLevel,
+  highScore,
+  goToNextPhase,
+  setHighScore,
 }: IGameProps): ReactElement {
   document.body.classList.replace("difficulty", "game");
 
   const noOfCards = difficultyLevelTonoOfCards[difficultyLevel];
   const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
   const [arrOfImg, setArrofImg] = useState<string[]>([]);
   const [clickedImg, setClickedImg] = useState<Set<string>>(new Set<string>());
+  const [gameResult, setGameResult] = useState<TResult | null>(null);
 
-  function roundOver(res: TResult): ReactElement {
-    if (res === "lost" && highScore < score) {
-      setHighScore(score);
+  function shuffleArray<T>(array: T[]): T[] {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-
-    const message =
-      res === "lost" ? "Oops! You had already clicked it." : "Hurray! You won.";
-
-    return (
-      <>
-        <p>{message}</p>
-        <p>Maybe try a different category or difficulty level ?</p>
-        <button>Play Again?</button>
-      </>
-    );
+    return arr;
   }
 
   function handleClick(e: MouseEvent<HTMLImageElement>) {
     const imgUrl = e.currentTarget.src;
     if (clickedImg.has(imgUrl)) {
-      roundOver("lost");
+      setGameResult("lost");
       return;
     }
-    setScore((prev) => prev + 1);
+    const newScore = score + 1;
+    setScore(newScore);
+    if (newScore === noOfCards) {
+      setGameResult("win");
+      return;
+    }
     setClickedImg((prev) => new Set(prev).add(imgUrl));
-    if (score === noOfCards) roundOver("win");
+    setArrofImg((prev) => shuffleArray(prev));
   }
+
+  useEffect(() => {
+    if (gameResult && score > highScore) {
+      setHighScore(score);
+    }
+  }, [gameResult, score, highScore, setHighScore]);
+
+  useEffect(() => {
+    if (gameResult) {
+      document.body.className = "result";
+    }
+  }, [gameResult]);
 
   useEffect(() => {
     switch (gameCategory) {
@@ -74,13 +87,25 @@ export default function Game({
 
   return (
     <>
-      <main>
-        <div id="score">
-          <p>Score: {score}</p>
-          <p>HighScore: {highScore}</p>
-        </div>
-        <Grid arrOfImg={arrOfImg} handleClick={handleClick} />
-      </main>
+      {gameResult ? (
+        <main>
+          <p>
+            {gameResult === "lost"
+              ? "Oops! You had already clicked it."
+              : "Hurray! You won."}
+          </p>
+          <p>Maybe try a different category or difficulty level ?</p>
+          <button onClick={() => goToNextPhase("category")}>Play Again?</button>
+        </main>
+      ) : (
+        <main>
+          <div id="score">
+            <p>HighScore: {highScore}</p>
+            <p>Score: {score}</p>
+          </div>
+          <Grid arrOfImg={arrOfImg} handleClick={handleClick} />
+        </main>
+      )}
     </>
   );
 }

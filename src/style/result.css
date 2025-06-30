@@ -1,0 +1,37 @@
+body.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #1b1b1b;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+
+  main {
+    justify-content: center;
+    display: grid;
+    align-content: center;
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  button {
+    background: #ff3b3f;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background: #e32a2e;
+  }
+}

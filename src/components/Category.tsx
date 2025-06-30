@@ -18,7 +18,8 @@ export default function Category({
   goToNextPhase,
   chooseCategory,
 }: ICategoryProp): ReactElement {
-  document.body.classList.add("category");
+  document.body.classList = "category";
+
   return (
     <>
       <h2>Select Category</h2>

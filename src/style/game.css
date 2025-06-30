@@ -13,11 +13,14 @@ body.game {
       align-items: center;
       gap: 2rem;
       img {
+        cursor: pointer;
         width: 100%;
         border: 1px solid royalblue;
         object-fit: cover;
         border-radius: 0.5rem;
       }
+      img:hover {
+        transform: translateY(-1rem);
+      }
     }
   }
-}

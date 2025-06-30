@@ -12,6 +12,7 @@ export default function App(): ReactElement {
   const [currentPhase, setCurrentPhase] = useState<Phase>("category");
   const [difficulty, setDifficulty] = useState<TDifficulty>("easy");
   const [category, setCategory] = useState<TCategory>("got");
+  const [highScore, setHighScore] = useState(0);
 
   function goToNextPhase(nextPhase: Phase) {
     setCurrentPhase(nextPhase);
@@ -44,7 +45,13 @@ export default function App(): ReactElement {
         />
       )}
       {currentPhase === "game" && (
-        <Game gameCategory={category} difficultyLevel={difficulty} />
+        <Game
+          gameCategory={category}
+          difficultyLevel={difficulty}
+          goToNextPhase={goToNextPhase}
+          highScore={highScore}
+          setHighScore={setHighScore}
+        />
       )}
       <footer>
         <p>
