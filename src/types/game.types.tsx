@@ -2,6 +2,8 @@ import type { TCategory } from "./category.types";
 import type { TDifficulty } from "./difficulty.types";
 
 export interface IGameProps {
-  category: TCategory;
+  gameCategory: TCategory;
   difficultyLevel: TDifficulty;
 }
+
+export type TResult = "win" | "lost";

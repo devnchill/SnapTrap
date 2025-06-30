@@ -44,7 +44,7 @@ export default function App(): ReactElement {
         />
       )}
       {currentPhase === "game" && (
-        <Game category={category} difficultyLevel={difficulty} />
+        <Game gameCategory={category} difficultyLevel={difficulty} />
       )}
       <footer>
         <p>
