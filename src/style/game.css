@@ -15,7 +15,6 @@ body.game {
       img {
         cursor: pointer;
         width: 100%;
-        border: 1px solid royalblue;
         object-fit: cover;
         border-radius: 0.5rem;
       }
@@ -24,3 +23,9 @@ body.game {
       }
     }
   }
+}
+body.got {
+  img {
+    aspect-ratio: 2/3;
+  }
+}

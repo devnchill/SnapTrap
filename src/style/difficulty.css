@@ -9,11 +9,10 @@ body.difficulty {
         justify-content: center;
         & > section {
           cursor: pointer;
-          border-radius: 2px;
+          border-radius: 1px;
           padding: 1rem;
         }
         section:hover {
-          border: 2px solid black;
           transform: translateY(-1rem);
         }
       }
@@ -27,8 +26,13 @@ body.got {
   }
   & > #root {
     background-image: url("/got.jpg");
-    & > #app > main > section:hover {
-      border: 2px solid white;
+  }
+  main {
+    .level:hover {
+      border: 1px solid white;
+    }
+    img {
+      border: 1px solid white;
     }
   }
 }
@@ -38,17 +42,32 @@ body.pokemon {
     background-image: url("/pokemon.jpg");
     & > #app {
       border: 1px solid royalblue;
+      .level:hover {
+        border: 1px solid black;
+      }
+    }
+    img {
+      border: 1px solid royalblue;
     }
   }
 }
 body.bb {
   & > #root {
     background-image: url("/breaking_bad.jpg");
+    .level:hover {
+      border: 1px solid black;
+    }
+    img {
+      border: 1px solid black;
+    }
   }
 }
 
 body.ram {
   & > #root {
     background-image: url("/ricky_and_morty.png");
+    .level:hover {
+      border: 1px solid black;
+    }
   }
 }

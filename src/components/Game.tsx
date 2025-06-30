@@ -5,6 +5,7 @@ import type { TDifficulty } from "../types/difficulty.types";
 import fetchPokemonImg from "../service/pokemon";
 import "../style/game.css";
 import "../style/result.css";
+import fetchGOTImg from "../service/got";
 
 const difficultyLevelTonoOfCards: Record<TDifficulty, number> = {
   easy: 10,
@@ -72,6 +73,8 @@ export default function Game({
         break;
       }
       case "got": {
+        const imgPromise = fetchGOTImg(noOfCards);
+        imgPromise.then((val) => setArrofImg(val));
         break;
       }
       case "bb": {

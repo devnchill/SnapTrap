@@ -18,6 +18,7 @@ export default function Difficulty({
         {level.map((diffLevel, index) => {
           return (
             <section
+              className="level"
               tabIndex={0}
               onClick={() => {
                 goToNextPhase("game");
