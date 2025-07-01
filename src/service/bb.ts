@@ -1,15 +1,18 @@
-interface IBBObj {
-  image_url: string;
-}
 export default async function fetchBBImg(noOfCards: number): Promise<string[]> {
   const res = await fetch("/data/characters.json");
   const characters = await res.json();
 
-  const urls = characters
-    .map((char: IBBObj) => char.image_url)
-    .filter(Boolean)
-    .sort(() => Math.random() - 0.5)
-    .slice(0, noOfCards);
+  const seen = new Set<string>();
+  const uniqueUrls: string[] = [];
 
-  return urls;
+  for (const char of characters) {
+    const url = char.image_url;
+    if (url && !seen.has(url)) {
+      seen.add(url);
+      uniqueUrls.push(url);
+    }
+  }
+
+  const shuffled = uniqueUrls.sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, noOfCards);
 }
