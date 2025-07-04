@@ -9,7 +9,7 @@ body.game {
     }
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       align-items: center;
       gap: 2rem;
       img {
@@ -28,5 +28,16 @@ body.got,
 body.bb {
   img {
     aspect-ratio: 2/3;
+  }
+}
+@media (max-width: 600px) {
+  body.game main .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+    border-radius: 0.2rem;
+    img {
+      max-width: 80px;
+      height: auto;
+    }
   }
 }

@@ -8,6 +8,7 @@ import "../style/result.css";
 import fetchGOTImg from "../service/got";
 import fetchRAMImg from "../service/ram";
 import fetchBBImg from "../service/bb";
+import Result from "./Result";
 
 const difficultyLevelTonoOfCards: Record<TDifficulty, number> = {
   easy: 10,
@@ -63,7 +64,7 @@ export default function Game({
 
   useEffect(() => {
     if (gameResult) {
-      document.body.className = "result";
+      document.body.classList.add("result");
     }
   }, [gameResult]);
 
@@ -97,25 +98,22 @@ export default function Game({
 
   return (
     <>
-      {gameResult ? (
-        <main>
-          <p>
-            {gameResult === "lost"
-              ? "Oops! You had already clicked it."
-              : "Hurray! You won."}
-          </p>
-          <p>Maybe try a different category or difficulty level ?</p>
-          <button onClick={() => goToNextPhase("category")}>Play Again?</button>
-        </main>
-      ) : (
-        <main>
-          <div id="score">
-            <p>HighScore: {highScore}</p>
-            <p>Score: {score}</p>
-          </div>
-          <Grid arrOfImg={arrOfImg} handleClick={handleClick} />
-        </main>
+      {gameResult && (
+        <Result
+          category={gameCategory}
+          gameResult={gameResult}
+          score={score}
+          highScore={highScore}
+          goToNextPhase={goToNextPhase}
+        ></Result>
       )}
+      <main>
+        <div id="score">
+          <p>HighScore: {highScore}</p>
+          <p>Score: {score}</p>
+        </div>
+        <Grid arrOfImg={arrOfImg} handleClick={handleClick} />
+      </main>
     </>
   );
 }

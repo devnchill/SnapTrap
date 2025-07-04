@@ -1,32 +1,23 @@
 body.result {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #1b1b1b;
-  color: white;
-  font-family: sans-serif;
-  text-align: center;
-
-  main {
+  * {
+    color: grey;
+  }
+  dialog {
+    border-radius: clamp(1rem, 2vw, 2.5rem);
+    animation: popup 0.3s ease-out;
+    background: rgba(50, 50, 50, 0.6);
+    button {
+      background: rgba(80, 80, 80, 0.9);
+    }
+  }
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+  }
+  .modal {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    display: grid;
-    align-content: center;
-  }
-
-  p {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-  }
-
-  button {
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  button:hover {
+    flex-direction: column;
   }
 }
